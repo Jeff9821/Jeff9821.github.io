@@ -16,7 +16,7 @@
             color: #f0f0f0;
             background-color: #2c2c2c;
             margin: 0;
-            padding: 0;
+            padding-top: 70px; /* Padding to prevent content from hiding behind the fixed navbar */
         }
 
         .navbar-custom {
@@ -49,25 +49,21 @@
             transform: scale(1.1);
         }
 
-        #about-me, #professional, #personal, #projects, #blog-articles {
+        #about-me, #professional, #personal, #projects {
             margin: 20px;
             padding: 20px;
-            background-color: #3e3e3e;
+            background-color: #3e3e3e; /* Slightly lighter gray for contrast */
             border-radius: 10px;
-        }
-
-        .blog-article {
-            margin-bottom: 20px;
         }
 
         #social-links a {
             margin: 0 10px;
-            color: #f0f0f0;
+            color: #f0f0f0; /* Light text color */
             text-decoration: none;
         }
 
         #social-links a:hover {
-            color: #0082fc;
+            color: #0082fc; /* Bright color for hover effect */
         }
 
         @media (max-width: 768px) {
@@ -80,8 +76,8 @@
 </head>
 <body>
 
-    <!-- Navigation Menu -->
-    <nav class="navbar navbar-expand-lg navbar-custom">
+    <!-- Fixed Navigation Menu -->
+    <nav class="navbar navbar-expand-lg navbar-custom fixed-top">
         <a class="navbar-brand" href="#">My Portfolio</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -98,7 +94,7 @@
                     <a class="nav-link" href="#projects">Projects</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#blog-articles">Blog</a>
+                    <a class="nav-link" href="blog.html">Blog</a> <!-- Link to separate blog page -->
                 </li>
             </ul>
         </div>
@@ -135,23 +131,6 @@
 
                 <h5>Disaster Recovery</h5>
                 <p>Preparing for hardware failure and data loss by setting up disaster recovery procedures, ensuring high availability setup, and validating backups.</p>
-            </div>
-        </div>
-
-        <!-- Blog Articles Section -->
-        <div id="blog-articles" class="row">
-            <div class="col-md-8 offset-md-2">
-                <h2>Blog Articles</h2>
-                <div class="blog-article">
-                    <h5>Exploring 5G Network Architectures</h5>
-                    <p>Deep dive into the world of 5G networking, covering the latest advancements and challenges in the industry.</p>
-                    <a href="5g-network-article.html">Read More</a>
-                </div>
-                <div class="blog-article">
-                    <h5>Homelab Adventures: My Server Setup Journey</h5>
-                    <p>A personal account of setting up and managing a homelab environment, including lessons learned and best practices.</p>
-                    <a href="homelab-setup-article.html">Read More</a>
-                </div>
             </div>
         </div>
     </div>
