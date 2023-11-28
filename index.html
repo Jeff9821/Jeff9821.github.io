@@ -41,7 +41,7 @@
         #profile-container {
             text-align: center;
             margin-top: 50px;
-            transition: transform 0.3s; /* Added transition for smooth movement */
+            transition: transform 0.5s ease-in-out, left 0.5s ease-in-out; /* Smooth transition for transform and left */
         }
 
         #profile-image {
@@ -55,6 +55,7 @@
         }
 
         #about-me, #projects {
+            z-index: 5; /* Lower than sticky element */
             margin: 20px;
             padding: 20px;
             background-color: #3e3e3e; /* Slightly lighter gray for contrast */
@@ -74,10 +75,10 @@
         /* Sticky sidebar styles */
         .sticky {
             position: fixed;
-            top: 70px; /* Adjust top value as needed */
-            width: 200px; /* Adjust width as needed */
-            left: 0; /* Start at the left edge of the viewport */
-            z-index: 100; /* Ensure the sticky sidebar is above other content */
+            top: 70px;
+            left: 0;
+            z-index: 10; /* Make sure this is less than the z-index of content boxes */
+            transition: top 0.5s ease, left 0.5s ease; /* Add transition for smooth effect */
         }
     </style>
 </head>
@@ -147,24 +148,26 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
     <script>
-        // Sticky sidebar script
+        // ... (other script elements) ...
+
         window.addEventListener('scroll', function() {
             var headerOffset = 70; // Height of the header
             var profileSection = document.getElementById('profile-container');
-            var socialLinks = document.getElementById('social-links');
-            var sticky = profileSection.offsetTop - headerOffset;
-            
-            if (window.pageYOffset > sticky) {
+            var stickyStart = profileSection.offsetTop - headerOffset;
+            var stickyEnd = stickyStart + 150; // Adjust this value based on when you want the transition to finish
+
+            if (window.pageYOffset > stickyStart && window.pageYOffset < stickyEnd) {
+                // Smooth transition for top position
+                profileSection.style.top = (headerOffset - (window.pageYOffset - stickyStart)) + 'px';
+                profileSection.style.left = ((window.pageYOffset - stickyStart) / (stickyEnd - stickyStart) * 100) + 'px'; // Smooth transition for left position
+            } else if (window.pageYOffset >= stickyEnd) {
                 profileSection.classList.add('sticky');
-                socialLinks.classList.add('sticky');
-                // Adjust the left position as needed
-                profileSection.style.left = '10px';
-                socialLinks.style.left = '10px';
+                profileSection.style.top = headerOffset + 'px';
+                profileSection.style.left = '100px'; // Adjust this value to match the final left position
             } else {
                 profileSection.classList.remove('sticky');
-                socialLinks.classList.remove('sticky');
+                profileSection.style.top = 'initial';
                 profileSection.style.left = 'initial';
-                socialLinks.style.left = 'initial';
             }
         });
     </script>
