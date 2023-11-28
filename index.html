@@ -4,10 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>My Portfolio</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/path/to/your/favicon.png"> <!-- Update the path to your favicon -->
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <style>
@@ -17,16 +19,19 @@
             background-color: #2c2c2c;
             margin: 0;
             padding-top: 70px; /* Padding to prevent content from hiding behind the fixed navbar */
+            font-weight: 400; /* Slightly bolder text for better readability */
         }
 
         .navbar-custom {
             background-color: #333;
             padding: 0.5rem 1rem;
+            border-bottom: 3px solid #0082fc; /* Adding a bottom border for a sharper look */
         }
 
         .navbar-custom .navbar-brand,
         .navbar-custom .nav-link {
             color: #f0f0f0;
+            font-weight: 500; /* Making navbar text bolder */
         }
 
         .navbar-custom .nav-link:hover {
@@ -49,7 +54,7 @@
             transform: scale(1.1);
         }
 
-        #about-me, #professional, #personal, #projects {
+        #about-me, #projects {
             margin: 20px;
             padding: 20px;
             background-color: #3e3e3e; /* Slightly lighter gray for contrast */
@@ -66,11 +71,11 @@
             color: #0082fc; /* Bright color for hover effect */
         }
 
-        @media (max-width: 768px) {
-            #profile-image {
-                width: 100px;
-                height: 100px;
-            }
+        /* Sticky sidebar styles */
+        .sticky {
+            position: fixed;
+            top: 70px; /* Adjust top value as needed */
+            width: 200px; /* Adjust width as needed */
         }
     </style>
 </head>
@@ -95,10 +100,10 @@
     <div class="container">
         <div id="profile-container" class="row justify-content-center">
             <div class="col-md-4 text-center">
-                <img id="profile-image" src="memoji.png" alt="Simon Kölsch">
+                <img id="profile-image" src="memoji.png" alt="Profile Image">
                 <h1>Simon Kölsch</h1>
                 <div id="social-links">
-                    <a href="https://github.com/Jeff9821" target="_blank" title="GitHub"><i class="fab fa-github fa-2x"></i></a>
+                    <a href="https://github.com/Jeff9821" target="_blank" title="GitHub"><i class="fab fa-github fa-22"></i></a>
                     <a href="https://www.linkedin.com/in/simon-k%C3%B6lsch-54207a224/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin fa-2x"></i></a>
                 </div>
             </div>
@@ -127,8 +132,24 @@
     </div>
 
     <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <script>
+        // Sticky sidebar script
+        window.addEventListener('scroll', function() {
+            var sidebar = document.getElementById('social-links');
+            var sticky = sidebar.offsetTop;
+            
+            if (window.pageYOffset > sticky) {
+                sidebar.classList.add('sticky');
+            } else {
+                sidebar.classList.remove('sticky');
+            }
+        });
+    </script>
 </body>
 </html>
+
