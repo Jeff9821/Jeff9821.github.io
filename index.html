@@ -76,9 +76,15 @@
         .sticky {
             position: fixed;
             top: 70px;
-            left: 0;
-            z-index: 10; /* Make sure this is less than the z-index of content boxes */
-            transition: top 0.5s ease, left 0.5s ease; /* Add transition for smooth effect */
+            left: 10px; /* Reduced left offset */
+            z-index: 10; /* Ensure this is higher than content but lower than fixed navbar */
+            transition: top 0.5s ease, left 0.5s ease; /* Smooth transitions */
+        }    
+
+        #social-links {
+            display: flex; /* This will make the links lay out horizontally */
+            justify-content: center; /* This will center the links in their container */
+            align-items: center; /* This will vertically align the links in their container */
         }
     </style>
 </head>
@@ -148,27 +154,18 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
     <script>
-        // ... (other script elements) ...
-
         window.addEventListener('scroll', function() {
             var headerOffset = 70; // Height of the header
             var profileSection = document.getElementById('profile-container');
-            var stickyStart = profileSection.offsetTop - headerOffset;
-            var stickyEnd = stickyStart + 150; // Adjust this value based on when you want the transition to finish
-
-            if (window.pageYOffset > stickyStart && window.pageYOffset < stickyEnd) {
-                // Smooth transition for top position
-                profileSection.style.top = (headerOffset - (window.pageYOffset - stickyStart)) + 'px';
-                profileSection.style.left = ((window.pageYOffset - stickyStart) / (stickyEnd - stickyStart) * 100) + 'px'; // Smooth transition for left position
-            } else if (window.pageYOffset >= stickyEnd) {
-                profileSection.classList.add('sticky');
-                profileSection.style.top = headerOffset + 'px';
-                profileSection.style.left = '100px'; // Adjust this value to match the final left position
-            } else {
-                profileSection.classList.remove('sticky');
-                profileSection.style.top = 'initial';
-                profileSection.style.left = 'initial';
-            }
+            var stickyEnd = profileSection.offsetTop + profileSection.offsetHeight;
+            
+        if (window.pageYOffset >= stickyEnd) {
+            profileSection.classList.add('sticky');
+            profileSection.style.left = '10px'; // Reduced left offset when sticky
+        } else {
+            profileSection.classList.remove('sticky');
+            profileSection.style.left = 'initial';
+        }   
         });
     </script>
 </body>
