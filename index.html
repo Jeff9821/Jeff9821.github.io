@@ -30,7 +30,7 @@
 
         .navbar-custom .navbar-brand,
         .navbar-custom .nav-link {
-            color: #f0f0f0;
+            color: #f0f0f0; /* Already white color */
             font-weight: 500; /* Making navbar text bolder */
         }
 
@@ -41,13 +41,13 @@
         #profile-container {
             text-align: center;
             margin-top: 50px;
+            transition: transform 0.3s; /* Added transition for smooth movement */
         }
 
         #profile-image {
             border-radius: 50%;
             width: 150px;
             height: 150px;
-            transition: transform 0.3s;
         }
 
         #profile-image:hover {
@@ -76,19 +76,21 @@
             position: fixed;
             top: 70px; /* Adjust top value as needed */
             width: 200px; /* Adjust width as needed */
+            left: 0; /* Start at the left edge of the viewport */
+            z-index: 100; /* Ensure the sticky sidebar is above other content */
         }
     </style>
 </head>
 <body>
 
-    <!-- Fixed Navigation Menu -->
+        <!-- Fixed Navigation Menu -->
     <nav class="navbar navbar-expand-lg navbar-light navbar-custom fixed-top">
         <a class="navbar-brand" href="#">My Portfolio</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
+            <div class="navbar-nav ml-auto"> <!-- Added ml-auto to move the links to the right -->
                 <a class="nav-item nav-link active" href="#profile-container">Home <span class="sr-only">(current)</span></a>
                 <a class="nav-item nav-link" href="#about-me">About</a>
                 <a class="nav-item nav-link" href="#projects">Projects</a>
@@ -103,7 +105,7 @@
                 <img id="profile-image" src="memoji.png" alt="Profile Image">
                 <h1>Simon Kölsch</h1>
                 <div id="social-links">
-                    <a href="https://github.com/Jeff9821" target="_blank" title="GitHub"><i class="fab fa-github fa-22"></i></a>
+                    <a href="https://github.com/Jeff9821" target="_blank" title="GitHub"><i class="fab fa-github fa-2x"></i></a> <!-- Adjusted GitHub icon size -->
                     <a href="https://www.linkedin.com/in/simon-k%C3%B6lsch-54207a224/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin fa-2x"></i></a>
                 </div>
             </div>
@@ -140,13 +142,22 @@
     <script>
         // Sticky sidebar script
         window.addEventListener('scroll', function() {
-            var sidebar = document.getElementById('social-links');
-            var sticky = sidebar.offsetTop;
+            var headerOffset = 70; // Height of the header
+            var profileSection = document.getElementById('profile-container');
+            var socialLinks = document.getElementById('social-links');
+            var sticky = profileSection.offsetTop - headerOffset;
             
             if (window.pageYOffset > sticky) {
-                sidebar.classList.add('sticky');
+                profileSection.classList.add('sticky');
+                socialLinks.classList.add('sticky');
+                // Adjust the left position as needed
+                profileSection.style.left = '10px';
+                socialLinks.style.left = '10px';
             } else {
-                sidebar.classList.remove('sticky');
+                profileSection.classList.remove('sticky');
+                socialLinks.classList.remove('sticky');
+                profileSection.style.left = 'initial';
+                socialLinks.style.left = 'initial';
             }
         });
     </script>
