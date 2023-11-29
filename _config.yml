@@ -3,8 +3,8 @@ baseurl: "/Jeff9821.github.io" # the name of your github repo
 url: "https://Jeff9821.github.io" # the url of your github pages
 
 # site information used in page title, meta data etc.
-title: "Tailpages: Tailwind + Github Pages"
-description: A Github Pages (Jekyll) template based on TailwindCSS
+title: "Simon Kölsch Portfolio and Blog"
+description: Portfolio website for Simon Kölsch
 
 # color theme for links
 theme-color: indigo # indigo|yellow|pink|green|stone|
