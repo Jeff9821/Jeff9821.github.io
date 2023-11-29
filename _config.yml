@@ -20,7 +20,7 @@ show-nav-menu: true
 
 nav-menu:
   - text: Home
-    permalink: '#profile-container'
+    permalink: '/'
   - text: About
     permalink: about
   - text: Projects
