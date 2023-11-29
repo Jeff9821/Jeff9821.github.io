@@ -24,7 +24,7 @@ nav-menu:
   - text: About
     permalink: about
   - text: Projects
-    permalink: '#projects'
+    permalink: projects
   - text: Blog
     permalink: blog
 
