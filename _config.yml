@@ -22,7 +22,7 @@ nav-menu:
   - text: Home
     permalink: '#profile-container'
   - text: About
-    permalink: '/about/'
+    permalink: about
   - text: Projects
     permalink: '#projects'
   - text: Blog
