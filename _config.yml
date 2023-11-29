@@ -18,12 +18,15 @@ author-image: memoji.png  # file must be in the /assets/img/ folder
 show-nav-menu: true
 
 nav-menu:
-- text: About
-  permalink: about
-- text: Bitcoin
-  permalink: bitcoin
-- text: Blog
-  permalink: blog
+  - text: Home
+    permalink: '#profile-container'
+  - text: About
+    permalink: '#about-me'
+  - text: Projects
+    permalink: '#projects'
+  - text: Blog
+    permalink: blog
+
 
 # use false to turn off any social media links
 twitter: https://twitter.com/
