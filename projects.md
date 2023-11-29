@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Current Projects
-permalink: /projects/
+permalink: projects
 ---
 
 ### Mail Server
