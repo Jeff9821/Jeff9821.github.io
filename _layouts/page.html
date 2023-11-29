@@ -2,12 +2,12 @@
 layout: default
 ---
 {% if site.show-nav-menu %}
-  {% include nav.html%}
+  {% include nav.html %}
 {% endif %}
 
-<div class="px-4 pt-4 prose prose-{{site.theme-color}}">
-    <h1 class="text-center mt-6 mb-6">{{ page.title }}</h1>
-    {{content}}
+<div class="px-4 pt-4 prose prose-{{site.theme-color}} dark:prose-dark">
+    <h1 class="text-center mt-6 mb-6 text-gray-900 dark:text-gray-100">{{ page.title }}</h1>
+    {{ content }}
 </div>
 
 {% include footer.html %}
