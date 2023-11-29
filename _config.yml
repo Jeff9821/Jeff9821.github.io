@@ -29,18 +29,15 @@ nav-menu:
 
 
 # use false to turn off any social media links
-twitter: https://twitter.com/
-facebook: https://facebook.com/
-instagram: https://instagram.com/
-github: https://github.com/
-linkedin: https://linkedin.com/
+github: https://github.com/Jeff9821
+linkedin: https://www.linkedin.com/in/simon-k%C3%B6lsch-54207a224/
 medium: false
 google-scholar: false
 email: false
 
 # footer information
-footer-msg: "Powered by Tailpages"
-footer-msg-link: https://github.com/harrywang/tailpages
+#footer-msg: "Powered by Tailpages"
+#footer-msg-link: https://github.com/harrywang/tailpages
 
 # google analytics
 google-analytics: G-WCRC1TC2V5
