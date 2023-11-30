@@ -1,40 +1,49 @@
-<nav class="flex items-center justify-center px-2 mb-6">
-    <div class="container px-4 mx-auto flex items-center justify-center">
-        <div class="w-full flex justify-center">
-            <!-- Mobile menu button -->
-            <button type="button" onclick="toggleNavbar('navbar')"
-                    class="rounded-md inline-flex items-center justify-center text-gray-500 md:hidden"
-                    aria-expanded="false">
-                <span class="sr-only">Open menu</span>
-                <!-- Menu icon -->
-                <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                     stroke="currentColor" aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                          d="M4 6h16M4 12h16M4 18h16"/>
-                </svg>
-            </button>
+<nav class="bg-white shadow-lg">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="flex justify-between">
+      <div class="flex space-x-4">
+        <!-- logo -->
+        <div>
+          <a href="/" class="flex items-center py-5 px-2 text-gray-700 hover:text-gray-900">
+            <svg class="h-6 w-6 mr-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+            <span class="font-bold">Your Brand</span>
+          </a>
         </div>
 
-        <!-- Navigation Links -->
-        <div class="hidden" id="navbar">
-            <div class="flex flex-col items-center w-full">
-                {% for link in site.nav-menu %}
-                    {% unless page.url == link.permalink or page.url == link.permalink | append: '/' %}
-                        <a class="text-sm text-gray-500 hover:text-gray-900 px-3 py-2 uppercase"
-                           href="{{ link.permalink | prepend: site.baseurl }}">
-                            {{ link.text }}
-                        </a>
-                    {% endunless %}
-                {% endfor %}
-            </div>
+        <!-- primary nav -->
+        <div class="hidden md:flex items-center space-x-1">
+          {% for link in site.nav-menu %}
+            <a href="{{ link.permalink | prepend: site.baseurl }}" class="py-5 px-3 text-gray-700 hover:text-gray-900">{{ link.text }}</a>
+          {% endfor %}
         </div>
+      </div>
+
+      <!-- mobile button goes here -->
+      <div class="md:hidden flex items-center">
+        <button class="mobile-menu-button">
+          <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+          </svg>
+        </button>
+      </div>
     </div>
+  </div>
+
+  <!-- mobile menu -->
+  <div class="mobile-menu hidden md:hidden">
+    {% for link in site.nav-menu %}
+      <a href="{{ link.permalink | prepend: site.baseurl }}" class="block py-2 px-4 text-sm hover:bg-gray-200">{{ link.text }}</a>
+    {% endfor %}
+  </div>
 </nav>
 
 <script>
-    function toggleNavbar(collapseID) {
-        var element = document.getElementById(collapseID);
-        element.classList.toggle("hidden");
-        element.classList.toggle("flex");
-    }
+  const btn = document.querySelector("button.mobile-menu-button");
+  const menu = document.querySelector(".mobile-menu");
+
+  btn.addEventListener("click", () => {
+    menu.classList.toggle("hidden");
+  });
 </script>
