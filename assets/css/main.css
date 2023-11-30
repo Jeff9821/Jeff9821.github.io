@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind utilities;
 @tailwind components;
+.navigation {
+  /* Your CSS styles for navigation */
+}
+
+/* Responsive styles */
+@media screen and (min-width: 768px) {
+  .navigation ul {
+    /* styles for larger screens */
+  }
+}
