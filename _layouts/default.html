@@ -2,36 +2,20 @@
 <html lang="{{ site.lang | default: 'en-US' }}">
 
 <head>
-
-  <!-- google analytics -->
   {% if site.google-analytics %}
     {% include google-analytics.html %}
   {% endif %}
-
-  <!-- Jekyll SEO plugin -->
   {% seo %}
-
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta charset="utf-8">
   <title>{{ site.title }}</title>
-
-  <!-- TailwindCSS -->
-  <link rel="stylesheet" href="{{ site.url }}/assets/css/main.css">
-  <link rel="stylesheet" href="{{ site.url }}/assets/css/tailwind.css">
-
+  <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/main.css">
+  <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/tailwind.css">
   <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
-
-  <!-- fontawesome -->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
-    integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
-  
-  <!-- highlight.js -->
-  <link rel="stylesheet"
-    href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/github-dark-dimmed.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/github-dark-dimmed.min.css">
   <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
   <script>hljs.highlightAll();</script>
-  
-  <!-- MathJax -->
   <script>
     MathJax = {
       tex: {
@@ -44,28 +28,29 @@
 </head>
 
 <body class="font-sans mx-auto max-w-prose bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100">
+  <button onclick="toggleDarkMode()" class="dark-mode-toggle">Toggle Dark Mode</button>
   <div class="pt-12 pb-4">
     {{ content }}
   </div>
 
-  <!-- Footer and Scripts -->
-  <!--{% include footer.html %}-->
+  {% include footer.html %}
 
   <script>
-    // Function for getting the current year in the footer
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark');
+    }
+    
     (function () {
       if (document.getElementById("get-current-year")) {
         document.getElementById("get-current-year").textContent = new Date().getFullYear();
       }
     })();
 
-    // Function for opening navbar on mobile
     function toggleNavbar(collapseID) {
       document.getElementById(collapseID).classList.toggle("hidden");
       document.getElementById(collapseID).classList.toggle("block");
     }
 
-    // Function for dropdowns
     function openDropdown(event, dropdownID) {
       let element = event.target;
       while (element.nodeName !== "A") {
@@ -76,12 +61,10 @@
       dropdown.classList.toggle("block");
     }
 
-    // Function for show/hide table of content
     function toggleTOC() {
       var toc = document.getElementById('toc');
       toc.style.display = toc.style.display === "block" ? "none" : "block";
     }
   </script>
-
 </body>
 </html>
