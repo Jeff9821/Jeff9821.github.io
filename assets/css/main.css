@@ -36,3 +36,9 @@
   font-family: 'Arial', sans-serif;
   font-size: 1.2rem;
 }
+.flex-center {
+  display: flex;
+  justify-content: center; /* Horizontally center */
+  align-items: center; /* Vertically center */
+  flex-direction: column; /* Stack children vertically */
+}
